@@ -4,10 +4,6 @@ This is the implementation of the paper "LLM-ISR: Interest-based Sequential Reco
 
 LLM-ISR is designed for long-tail sequential recommendation. It introduces LLM-based semantic embeddings into a sequential recommender, models long-term and short-term user interests separately, enhances short-term interests with cluster-aware semantic prototypes, and fuses the two interests with a dynamic gate.
 
-To ease reproducibility, we archive the code and processed reproducibility files at Zenodo:
-
-https://doi.org/10.5281/zenodo.20180506
-
 ## Configure the environment
 
 To ease the configuration of the environment, I list versions of my hardware and software equipments:

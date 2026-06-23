@@ -38,9 +38,7 @@ The raw dataset files downloaded from the websites should be put into:
 
 The original third-party datasets are not redistributed in this repository. Please download them from the official websites above if you want to run the preprocessing from raw data.
 
-For direct reproduction, the processed files are provided in the Zenodo archive:
-
-    https://doi.org/10.5281/zenodo.20180506
+We upload all preprocessed files to this [link](https://drive.google.com/drive/folders/1OVHws7jHsq5qNZuNTFZFlFkyiFO8XTU7?usp=drive_link).
 
 ## Preprocess the dataset
 

@@ -38,6 +38,13 @@ The raw dataset files downloaded from the websites should be put into:
 
 The original third-party datasets are not redistributed in this repository. Please download them from the official websites above if you want to run the preprocessing from raw data.
 
+You can also use the download link below to download the raw data of Beauty and Fashion datasets:
+
+    Beauty reviews: https://mcauleylab.ucsd.edu/public_datasets/data/amazon_v2/categoryFiles/All_Beauty.json.gz
+    Beauty metadata: https://mcauleylab.ucsd.edu/public_datasets/data/amazon_v2/metaFiles2/meta_All_Beauty.json.gz
+    Fashion reviews: https://mcauleylab.ucsd.edu/public_datasets/data/amazon_v2/categoryFiles/AMAZON_FASHION.json.gz
+    Fashion metadata: https://mcauleylab.ucsd.edu/public_datasets/data/amazon_v2/metaFiles2/meta_AMAZON_FASHION.json.gz
+
 We upload all preprocessed files to this [link](https://drive.google.com/drive/folders/1OVHws7jHsq5qNZuNTFZFlFkyiFO8XTU7?usp=drive_link).
 
 ## Preprocess the dataset

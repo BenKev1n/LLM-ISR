@@ -166,22 +166,6 @@ In conclusion, the prerequisite files to run the main LLM-ISR experiments are as
 
 The current experiment scripts assume these files already exist under data/<dataset>/handled/. They do not call the raw-data preprocessing or LLM embedding generation steps online.
 
-## Code information
-
-The main files and folders are:
-
-    main.py                         main entry for training, testing, and embedding export
-    experiments/                    running scripts for Yelp, Fashion, and Beauty
-    models/LLMISR.py                implementation of LLM-ISR
-    models/DualLLMSRS.py            dual-view semantic/collaborative sequence encoder
-    trainers/                       training, validation, testing, and metric reporting
-    generators/                     dataset loading, sequence construction, and negative sampling
-    utils/                          metrics, logging, early stopping, and helper functions
-    data/data_process.py            raw-data preprocessing utilities
-    analysis/                       scripts for result analysis and plotting
-
-The default model in this repository is llmisr_sasrec.
-
 ## Run and test
 
 You can reproduce the main experiments by running the bash scripts as follows:
@@ -197,32 +181,6 @@ The logs and results will be saved in the folder log/. The checkpoints will be s
 To test a saved checkpoint, use --do_test with the corresponding dataset and checkpoint path. For example:
 
     python main.py --dataset yelp --model_name llmisr_sasrec --check_path refined_seed42 --do_test
-
-## Model pipeline
-
-During training, the code follows this pipeline:
-
-1. Load inter.txt and split each user sequence by leave-one-out evaluation. The last item is used for testing, the second-to-last item is used for validation, and the remaining items are used for training.
-2. Construct sequence-to-sequence training samples with positive next-item labels and randomly sampled negative items.
-3. Load LLM item embeddings from itm_emb_np.pkl and PCA item embeddings from pca64_itm_emb_np.pkl.
-4. Encode the full sequence as long-term interest.
-5. Keep the most recent ts_user interactions and encode them as short-term interest.
-6. Enhance short-term interest with the Cluster MoE module using user_label.pkl.
-7. Fuse long-term and short-term interests with a dynamic gate.
-8. Optimize the recommendation loss together with user-alignment loss, tail-user prototype contrastive loss, and category prediction auxiliary loss.
-9. Evaluate the model with HR@10 and NDCG@1/5/10/20, including short/long user groups and tail/popular item groups.
-
-## Reproducibility notes
-
-- The LLM semantic embeddings are precomputed offline and loaded from processed files.
-- The experiment scripts pass --freeze, so the LLM item embedding table is frozen during training.
-- Similar users, item labels, and user cluster files are offline preprocessing outputs.
-- Results may have small numerical differences across different CUDA, GPU, and PyTorch versions.
-- If the processed files are downloaded from Zenodo, you can run the experiment scripts directly without rerunning raw-data preprocessing.
-
-## License and contribution guidelines
-
-This repository is provided for academic research and reproducibility. Please check the license terms of Yelp and Amazon Review Data before downloading or using the datasets. Contributions and reproducibility reports are welcome.
 
 ## Thanks
 
